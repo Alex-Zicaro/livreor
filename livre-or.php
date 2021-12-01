@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$baseddonnees = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
+require_once("bdd/bdd.php");
 
 ?>
 
@@ -39,10 +39,10 @@ $baseddonnees = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
     <?php
     if(isset($_SESSION['id'])) 
     {
-    $dataquerycom = $baseddonnees->prepare("SELECT c.commentaire, u.login, c.date FROM commentaires AS c INNER JOIN utilisateurs AS u ON c.id_utilisateur = u.id ORDER BY date DESC");
-    $dataquerycom->execute();
+    $query = $bdd->prepare("SELECT c.commentaire, u.login, c.date FROM commentaires AS c INNER JOIN utilisateurs AS u ON c.id_utilisateur = u.id ORDER BY date DESC");
+    $query->execute();
 
-    $resultcoms = $dataquerycom-> fetchAll(PDO::FETCH_ASSOC);
+    $resultcoms = $query-> fetchAll(PDO::FETCH_ASSOC);
     
 
     foreach ($resultcoms as $commentaire)
@@ -54,7 +54,7 @@ $baseddonnees = new PDO('mysql:host=localhost;dbname=livreor', 'root', '');
 
 
     
-    $resultcoms = $dataquerycom-> fetchAll(PDO::FETCH_OBJ);
+    $resultcoms = $query-> fetchAll(PDO::FETCH_OBJ);
 
     foreach ($resultcoms as $commentaire)
     {

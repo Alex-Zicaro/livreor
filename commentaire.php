@@ -60,10 +60,8 @@ if (isset($_SESSION['id'])) {
             $req2->execute(array($commentaire, $id_utilisateur));
             ?>
             
-            <span class="alert alert-succes alert-dismissible fade show"> commentaire publié vous allez être redirigé vers le livre d'or </span>
+            <span class="alert alert-succes alert-dismissible fade show"> commentaire publié </span>
             <?php
-            sleep(3);
-            header("location : livre-or.php ");
 
 
             
