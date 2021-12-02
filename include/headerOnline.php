@@ -24,7 +24,7 @@
                     <a class="btn btn-light" href="livre-or.php">Livre d'or</a>
                 </li>
 
-                <form class="ml-5 my-2 d-flex align-items-center" action="profil.php" method="post">
+                <form class="ml-5 my-2 d-flex align-items-center" action="" method="get">
                     <input class="btn btn-primary " name="off" type="submit" value="Se déconnecter">
                 </form>
 
@@ -38,9 +38,11 @@
 
 <?php
 // déconnexion
-if (isset($_POST['off'])) {
-    
+if (isset($_GET['off'])) {
+
     session_destroy();
+    
+    
     
 }
 

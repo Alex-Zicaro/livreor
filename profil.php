@@ -21,13 +21,12 @@ include_once("bdd/bdd.php");
 
         if (isset($_SESSION['login'])) {
             include("include/headerOnline.php");
-        } else{
-            header('Location: connexion.php'); 
         }
-        if(isset($_SESSION['id']) === false) 
+        elseif(isset($_SESSION['id']) === false) 
         {
             header("Location: connexion.php");
         }
+
 
  //récupère les données du compte 
 

@@ -3,6 +3,7 @@ session_start();
 
 require_once("bdd/bdd.php");
 
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,8 @@ require_once("bdd/bdd.php");
     <header>
     <?php if (isset($_SESSION['login'])) {
             include_once("include/headerOnline.php");
-        } else{
+        } 
+        else{
             include_once('include/header.php'); 
         }
         ?>
@@ -37,8 +39,7 @@ require_once("bdd/bdd.php");
     
 
     <?php
-    if(isset($_SESSION['id'])) 
-    {
+    
     $query = $bdd->prepare("SELECT c.commentaire, u.login, c.date FROM commentaires AS c INNER JOIN utilisateurs AS u ON c.id_utilisateur = u.id ORDER BY date DESC");
     $query->execute();
 
@@ -75,5 +76,6 @@ require_once("bdd/bdd.php");
 </html>
 
 <?php   
-}
+
+
 ?>
